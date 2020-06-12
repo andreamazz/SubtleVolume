@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 `SubtleVolume` adheres to [Semantic Versioning](http://semver.org/).
 
-- `1.0.x` Releases - [1.0.0](#100) | [1.0.1](#101) | [1.0.2](#102)  
+- `1.0.x` Releases - [1.0.0](#100) | [1.0.1](#101) | [1.0.2](#102) | [1.0.3](#103)  
 - `0.5.x` Releases - [0.5.0](#050) | [0.5.1](#051) | [0.5.2](#052)  
 - `0.4.x` Releases - [0.4.0](#040)  
 - `0.3.x` Releases - [0.3.0](#030)  
@@ -10,6 +10,11 @@ All notable changes to this project will be documented in this file.
 - `0.1.x` Releases - [0.1.0](#010) | [0.1.1](#011)  
 
 ---
+
+## [1.0.3](https://github.com/andreamazz/SubtleVolume/releases/tag/1.0.3)
+
+- Add SwiftPM support
+
 
 ## [1.0.2](https://github.com/andreamazz/SubtleVolume/releases/tag/1.0.2)
 
