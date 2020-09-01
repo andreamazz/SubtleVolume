@@ -276,9 +276,9 @@ public enum SubtleVolumeError: Error {
     let image = delegate?.subtleVolume?(self, accessoryFor: volumeLevel)
     accessory.image = image
     var insets = UIEdgeInsets.zero
-    if image != nil {
-      insets.left += (frame.height)
-      accessory.frame = CGRect(x: 0, y: 0, width: frame.height, height: frame.height)
+    if let image = image {
+      insets.left += (image.size.width)
+      accessory.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
     }
     insets.left += padding.width
     insets.right += padding.width
