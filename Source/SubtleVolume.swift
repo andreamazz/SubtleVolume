@@ -95,6 +95,9 @@ public enum SubtleVolumeError: Error {
       updateVolume(volumeLevel, animated: false)
     }
   }
+    
+  open var displayAnimationDuration: TimeInterval = 0.4
+  open var hideAnimationDuration: TimeInterval = 0.4
 
   open var barBackgroundColor = UIColor.clear {
     didSet {
@@ -299,8 +302,9 @@ public enum SubtleVolumeError: Error {
       self.overlay.frame.size.width = self.container.frame.width * CGFloat(self.volumeLevel)
     })
 
-    UIView.animateKeyframes(withDuration: animated ? 2 : 0, delay: 0, options: .beginFromCurrentState, animations: { () -> Void in
-      UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2, animations: {
+    let totalAnimationTime: TimeInterval = 1.2 + displayAnimationDuration + hideAnimationDuration
+    UIView.animateKeyframes(withDuration: animated ? totalAnimationTime : 0, delay: 0, options: .beginFromCurrentState, animations: { () -> Void in
+      UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: self.displayAnimationDuration / totalAnimationTime, animations: {
         switch self.animation {
         case .none: break
         case .fadeIn:
@@ -311,7 +315,7 @@ public enum SubtleVolumeError: Error {
         }
       })
 
-      UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 0.2, animations: { () -> Void in
+      UIView.addKeyframe(withRelativeStartTime: 1 - (self.hideAnimationDuration / totalAnimationTime), relativeDuration: (self.hideAnimationDuration / totalAnimationTime), animations: { () -> Void in
         switch self.animation {
         case .none: break
         case .fadeIn:
